@@ -13,7 +13,9 @@ app.use(express.json());
 
 app.use("/api/vote", voteRoutes);
 app.use("/api/admin", adminRoutes);
-
+app.get('/', (req, res) => {
+  res.send('Voting API is running ✅');
+});
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => {
